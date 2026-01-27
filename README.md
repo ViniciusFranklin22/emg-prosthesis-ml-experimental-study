@@ -1,118 +1,95 @@
-Undergraduate Thesis – EMG Signal Analysis and Classification of Forearm Muscles
+# Undergraduate Thesis – EMG Signal Analysis and Classification of Forearm Muscles
 
-This repository contains all files related to the Undergraduate Thesis (Trabalho de Conclusão de Curso – TCC) developed by Vinícius Franklin, as part of the Electrical Engineering – Electronic Systems undergraduate program.
+This repository contains all files related to the Undergraduate Thesis (**Trabalho de Conclusão de Curso – TCC**) developed by **Vinícius Franklin**, as part of the Electrical Engineering – Electronic Systems undergraduate program.
 
 The work focuses on the acquisition, processing, feature extraction, and classification of electromyographic (EMG) signals collected from different forearm muscles. Distinct movement patterns are analyzed, and both unsupervised and supervised machine learning techniques are applied to evaluate signal individuality and classification performance.
 
-📄 Thesis Documents
+---
 
-Thesis (Portuguese):
-TCC_Vinicius_Franklin.pdf
+## 📄 Thesis Documents
 
-Thesis (English):
-TCC_Vinicius_Franklin_eng.pdf
+* **Thesis (Portuguese):** [TCC_Vinicius_Franklin.pdf](./TCC_Vinicius_Franklin.pdf)
+* **Thesis (English):** [TCC_Vinicius_Franklin_eng.pdf](./TCC_Vinicius_Franklin_eng.pdf)
 
 These documents describe the experimental setup, signal acquisition methodology, preprocessing stages, feature extraction methods, and the development and evaluation of classification models.
 
-📂 Repository Organization
+---
+
+## 📂 Repository Organization
 
 The repository is structured according to the organization of the thesis and the experimental configurations adopted during EMG signal acquisition.
 
-🔹 Acquisition Configurations
-
+### 🔹 Acquisition Configurations
 Each configuration corresponds to a specific forearm muscle:
 
-First Configuration → Flexor Carpi Radialis
-
-Second Configuration → Flexor Pollicis Longus
-
-Third Configuration → Flexor Digitorum Superficialis
-
-Fourth Configuration → Extensor Digitorum
+1.  **First Configuration** → Flexor Carpi Radialis
+2.  **Second Configuration** → Flexor Pollicis Longus
+3.  **Third Configuration** → Flexor Digitorum Superficialis
+4.  **Fourth Configuration** → Extensor Digitorum
 
 Each configuration folder contains the raw datasets, extracted features, and machine learning models related to the respective muscle.
 
-📊 EMG Signal Datasets
+### 📊 EMG Signal Datasets
+Within each configuration folder, approximately five `.csv` files are provided, corresponding to the following movement patterns:
 
-Within each configuration folder, approximately five .csv files are provided, corresponding to the following movement patterns described in the thesis:
+* Relaxed muscle
+* Contracted muscle
+* Contraction and relaxation movement (~10-second period)
+* Contraction and relaxation movement (~5-second period)
+* Contraction and relaxation of each individual finger (~5-second period), aiming to analyze signal interference and the individuality of muscle activation.
 
-Relaxed muscle
+---
 
-Contracted muscle
+## 🧠 Feature Extraction and Model Structure
 
-Contraction and relaxation movement with an approximate 10-second period
+To ensure clarity and reproducibility, the internal structure of each configuration follows this pattern:
 
-Contraction and relaxation movement with an approximate 5-second period
-
-Contraction and relaxation of each individual finger, with an approximate 5-second period, aiming to analyze signal interference and the individuality of muscle activation
-
-Each dataset is clearly identified in the file name, indicating the associated movement pattern.
-
-🧠 Feature Extraction and Model Structure
-
-To ensure clarity and reproducibility, the internal structure of each configuration follows the pattern:
-
+```text
 Number Configuration/
 │
 ├── Models/
-│ ├── Unsupervised/
-│ └── Supervised/
+│   ├── Unsupervised/
+│   └── Supervised/
 │
 └── Features Dataset/
+```
 
-🔹 Models/Unsupervised
+### 🔹 Models/Unsupervised
+Contains Jupyter notebooks (`.ipynb`) for feature extraction and unsupervised classification. Execution generates a `.csv` file with extracted features and labels. Each notebook documents how optimal parameters were obtained.
 
-This directory contains Jupyter notebooks (.ipynb) responsible for feature extraction from raw EMG signals and unsupervised classification of the datasets. Each notebook is associated with a specific movement pattern.
+### 🔹 Models/Supervised
+Contains notebooks that merge the labeled feature datasets within the same configuration to train and evaluate the supervised classification models.
 
-The execution of these notebooks generates a .csv file containing the extracted feature set and the classification label obtained through unsupervised learning. Each notebook also documents how the optimal parameter configuration was obtained for the corresponding dataset.
+### 🔹 Features Dataset
+Contains all feature datasets generated by the unsupervised models, properly formatted for direct use in supervised learning.
 
-🔹 Models/Supervised
+---
 
-This directory contains notebooks and scripts that load the previously generated and labeled feature datasets, merge all feature datasets within the same configuration, and train and evaluate the supervised classification model associated with that configuration.
+## ▶️ Code Execution Guidelines
+The codes were developed primarily using **Google Colab**, but can be executed locally.
 
-🔹 Features Dataset
+### 🔧 Path Configuration (Required)
+> [!IMPORTANT]
+> Every script and notebook contains a variable named `path = `. You must update this variable to match your local directory structure before execution. This is required for every file.
 
-This directory contains all feature datasets generated by the unsupervised models. These datasets are already properly formatted and can be directly used in the supervised learning stage.
+### 🔧 Google Colab–Specific Code
+When running locally, remove or comment out the following line:
 
-▶️ Code Execution Guidelines
-
-The codes in this repository were developed primarily using Google Colab, but they can be executed locally with minimal modifications.
-
-🔧 Path Configuration (Required for All Files)
-
-⚠️ Important:
-Every Python script and Jupyter notebook in this repository contains a dedicated code block defining a variable named:
-
-path =
-
-This variable specifies the directory where the datasets and generated files are located.
-Before executing any script or notebook, the user must update the path variable to match the local directory structure. This modification is required in every file, as each processing stage may use a different data path.
-
-🔧 Google Colab–Specific Code (Local Execution)
-
-When running the code locally, the following Google Colab–specific line must be removed or commented out:
-
+```python
 drive.mount('/content/drive')
+```
 
-This line is required only when executing the notebooks in the Google Colab environment.
+## 📦 Dependencies
+Install the required Python libraries using:
 
-📦 Dependencies
-
-All required Python libraries are listed in the file:
-
-requirements.txt
-
-Install the dependencies before execution using:
-
+```bash
 pip install -r requirements.txt
+```  
 
-ℹ️ Final Remarks
+## ℹ️ Final Remarks
+Since all feature datasets are already generated, you may skip the unsupervised stage and directly execute the supervised models if desired.
 
-Since all feature datasets are already generated and properly organized, users interested only in the final classification stage may directly execute the supervised models, without rerunning the unsupervised feature extraction process.
+## 👤 Author
+Vinícius Franklin Undergraduate Student – Electrical Engineering (Electronic Systems)
 
-👤 Author
-
-Vinícius Franklin
-Undergraduate Student – Electrical Engineering (Electronic Systems)
-Federal University of Juiz de Fora (UFJF)
-Brazil
+Federal University of Juiz de Fora (UFJF), Brazil
