@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+librosa
+plotly
+seaborn
+ipython
+google-colab
+imbalanced-learn
+eli5
