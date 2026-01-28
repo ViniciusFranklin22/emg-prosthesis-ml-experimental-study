@@ -20,7 +20,7 @@ These documents describe the experimental setup, signal acquisition methodology,
 The repository is structured according to the organization of the thesis and the experimental configurations adopted during EMG signal acquisition.
 
 
-## 🔧 KiCad – EMG Sensor Hardware Design
+## 🔧 Hardware Design – EMG Sensor (KiCad)
 
 This repository includes the **dedicated PCB design** of the EMG sensor used in the experimental setup.  
 The hardware was designed using **KiCad**, including schematic capture, PCB layout, and project configuration files.
@@ -107,3 +107,6 @@ Since all feature datasets are already generated, you may skip the unsupervised 
 Vinícius Franklin Undergraduate Student – Electrical Engineering (Electronic Systems)
 
 Federal University of Juiz de Fora (UFJF), Brazil
+
+## 📜 License
+This project is intended for academic and research purposes.
